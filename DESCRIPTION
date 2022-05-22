@@ -1,7 +1,7 @@
 Package: btw
 Type: Package
-Title: Run BayesTraitsV3 from R
-Version: 2.0
+Title: Run BayesTraits from R
+Version: 2.0.1
 Date: 2018-05-25
 Author: Randi H. Griffin
 Maintainer: Randi H. Griffin <rgriff23@gmail.com>
