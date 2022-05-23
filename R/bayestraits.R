@@ -1,5 +1,9 @@
 ## FUNCTION TO RUN BAYESTRAITS FROM R
-bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remove_files=TRUE) {
+bayestraits <- function (data=NULL,
+                         tree=NULL,
+                         commands=NULL,
+                         silent=TRUE,
+                         remove_files=TRUE) {
 
     bt_path <- getOption("bt_path")
     bt_bin <- getOption("bt_bin")
@@ -37,8 +41,9 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
 
     ## WRITE INPUT FILE, TREE, AND DATA
     write(c(commands, "run"), file = "./inputfile.txt")
-    ape::write.nexus(tree, file = "./tree.nex", translate = T)
-    write.table(data, file = "./data.txt", quote = F, col.names = F, row.names = F)
+    ape::write.nexus(tree, file = "./tree.nex", translate = TRUE)
+    write.table(data, file = "./data.txt",
+                quote = FALSE, col.names = FALSE, row.names = FALSE)
 
 
     ## RUN BAYESTRAITS
