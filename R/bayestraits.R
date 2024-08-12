@@ -15,12 +15,7 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
 
 
   # DETECT SYSTEM
-  if (.Platform$OS.type == "windows") {
-    windows = TRUE
-  } else if (Sys.info()["sysname"] == "Darwin") {
-    windows = FALSE
-  } else {stop("Operating system not supported")}
-  
+  windows <- (.Platform$OS.type == "windows") 
   
   # CHECK FOR BAYESTRAITS IN WORKING DIRECTORY
   if (windows) {
