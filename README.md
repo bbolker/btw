@@ -1,4 +1,4 @@
-# btw - version 2 
+# btw
 
 ___
 
@@ -16,13 +16,31 @@ Version 2 of `btw` adds three major changes from version 1:
 
 ## Set-up
 
+### download/install BayesTraits
+
+Download the zip/tarball from [Pagel's web site](https://www.evolution.reading.ac.uk/BayesTraits.html)
+
+As of 2026-07-16, here are direct links to versions for various operating systems:
+
+* [Windows 64](https://www.evolution.reading.ac.uk/BayesTraitsV5.0.3/Files/BayesTraitsV5.0.3-Win64.zip)
+* [Linux](https://www.evolution.reading.ac.uk/BayesTraitsV5.0.3/Files/BayesTraitsV5.0.3-Linux.tar.gz)
+* [OSX Intel](https://www.evolution.reading.ac.uk/BayesTraitsV5.0.3/Files/BayesTraitsV5.0.3-OSX.tar.gz)
+* [OSX ARM](https://www.evolution.reading.ac.uk/BayesTraitsV5.0.3/Files/BayesTraitsV5.0.3-OSX-ARM.tar.gz)
+
+[BayesTraits github repo](https://github.com/AndrewPMeade/BayesTraits-Release)
+
+These archives unpack into a directory of the form `BayesTraitsV[version]-[OS]/`; within this, the executable file is called `BayesTraitsV[short_version][.exe]` (only the Windows version has th
+
 Install from `devtools`:
 
-```r
-library("devtools")
-install_github("rgriff23/btw")
+```{r}
+remotes::install_github("bbolker/btw")
 library("btw")
 ```
+
+```{r}
+options(bt_path = "~/misc/BayesTraitsV5.0.3-Linux")
+options(bt_bin = "BayesTraitsV5")
 
 Before using `btw`, navigate to the directory containing BayesTraitsV3 using the `setwd` command. Double-check that you are in the right directory by typing `list.files()` in your R console. If BayesTraitsV3 is one of the files that prints to your R console, you are in the right place! The output files produced by BayesTraits will reside in this directory. 
 
@@ -99,9 +117,12 @@ The number of items in the schedule list will depend on the model settings.
 
 There are several more types of output files produced by BayesTraitsV3. The **AncStates file** is unique to the geographic model implemented in BayesTraitsV3. We can fit a geographic model and access the AncStates output like this:
 
+
+**FIXME**: this doesn't work. `c("13", "1")` selects Geo/Maximum Likelihood, but we get back the error "Fat Tail models require MCMC analysis." 
+
 ```r
 # commands to run geographic model ("13") in maximum likelihood mode
-command_vec_3 <- c("13")
+command_vec_3 <- c("13", "1")
 
 # run analysis
 results_3 <- bayestraits(primate.continuous2, primate.tree100, command_vec_3)
