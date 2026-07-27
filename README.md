@@ -29,7 +29,7 @@ As of 2026-07-16, here are direct links to versions for various operating system
 
 [BayesTraits github repo](https://github.com/AndrewPMeade/BayesTraits-Release)
 
-These archives unpack into a directory of the form `BayesTraitsV[version]-[OS]/`; within this, the executable file is called `BayesTraitsV[short_version][.exe]` (only the Windows version has th
+These archives unpack into a directory of the form `BayesTraitsV[version]-[OS]/`; within this, the executable file is called `BayesTraitsV[short_version][.exe]` (only the Windows version has the `.exe` tag):
 
 Install from `devtools`:
 
@@ -41,6 +41,7 @@ library("btw")
 ```{r}
 options(bt_path = "~/misc/BayesTraitsV5.0.3-Linux")
 options(bt_bin = "BayesTraitsV5")
+```
 
 Before using `btw`, navigate to the directory containing BayesTraitsV3 using the `setwd` command. Double-check that you are in the right directory by typing `list.files()` in your R console. If BayesTraitsV3 is one of the files that prints to your R console, you are in the right place! The output files produced by BayesTraits will reside in this directory. 
 
